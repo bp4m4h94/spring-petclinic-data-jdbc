@@ -40,9 +40,9 @@ public class VetControllerTests {
         james.setLastName("Carter");
         james.setId(1L);
         Vet helen = new Vet();
-        helen.setFirstName("Helen");
-        helen.setLastName("Leary");
-        helen.setId(2L);
+        helen.setFirstName("Ryan");
+        helen.setLastName("Tsai");
+        helen.setId(7L);
         Specialty radiology = new Specialty("radiology");
         radiology.setId(1L);
         helen.addSpecialty(radiology);

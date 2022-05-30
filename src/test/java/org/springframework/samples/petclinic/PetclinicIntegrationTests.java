@@ -20,8 +20,13 @@ import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.samples.petclinic.adm.AdmUserRepository;
+import org.springframework.samples.petclinic.login.model.AdmUser;
+import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 @SpringBootTest
 public class PetclinicIntegrationTests {
@@ -29,9 +34,18 @@ public class PetclinicIntegrationTests {
     @Autowired
     private VetRepository vets;
 
+    @Autowired
+    private AdmUserRepository admUserRepository;
+
     @Test
     public void testFindAll() throws Exception {
         vets.findAll();
         vets.findAll(); // served from cache
+    }
+
+    @Test
+    public void testFindAdmUser() throws Exception {
+        AdmUser a = admUserRepository.findByEmail("abc123@gmail.com");
+        System.out.println(a.toString());
     }
 }

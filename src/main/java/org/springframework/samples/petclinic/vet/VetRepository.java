@@ -41,7 +41,7 @@ public interface VetRepository extends Repository<Vet, Integer> {
      * @return a <code>Collection</code> of <code>Vet</code>s
      */
     @Transactional(readOnly = true)
-    @Cacheable("vets")
+//    @Cacheable("vets")
     @Query("select * from vet order by id desc")
     List<Vet> findAll() throws DataAccessException;
 

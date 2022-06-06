@@ -3,15 +3,14 @@ package org.springframework.samples.petclinic.login.model;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 public class AdmUser {
     @Id
     private Integer user_id;
 
-    private String user_name;
+    private String userName;
 
-    @NotBlank(message = "Email 不可為空")
+//    @NotBlank(message = "Email 不可為空")
     private String email;
 
     @NotBlank(message = "密碼不可為空")
@@ -25,12 +24,12 @@ public class AdmUser {
         this.user_id = user_id;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -52,8 +51,7 @@ public class AdmUser {
     @Override
     public String toString() {
         return "AdmUser{" +
-            "user_name=" + user_name +
-            ", user_name='" + user_name + '\'' +
+            "userName=" + userName +
             ", email='" + email + '\'' +
             ", password='" + password + '\'' +
             '}';

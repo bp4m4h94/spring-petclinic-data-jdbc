@@ -3,9 +3,8 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
 
   <body>
-
   <form th:object="${admUser}">
-      <h2 th:text="#{welcome}">Welcome</h2><b><span th:text="*{user_name}"></span></b>
+      <h2 th:text="#{welcome}">Welcome</h2><b><span th:text="*{userName}"></span></b>
       <div class="row">
           <div class="col-md-12">
               <img class="img-responsive" src="../static/resources/images/pets.png"
@@ -13,7 +12,6 @@
           </div>
       </div>
   </form>
-
   </body>
 
 </html>

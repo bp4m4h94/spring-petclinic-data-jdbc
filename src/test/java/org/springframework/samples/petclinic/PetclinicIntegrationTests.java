@@ -22,11 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.samples.petclinic.adm.AdmUserRepository;
 import org.springframework.samples.petclinic.login.model.AdmUser;
-import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.List;
 
 @SpringBootTest
 public class PetclinicIntegrationTests {
@@ -45,7 +41,7 @@ public class PetclinicIntegrationTests {
 
     @Test
     public void testFindAdmUser() throws Exception {
-        AdmUser a = admUserRepository.findByEmail("abc123@gmail.com");
+        AdmUser a = admUserRepository.findByEmailAndPassword("abc123@gmail.com", "sa");
         System.out.println(a.toString());
     }
 }

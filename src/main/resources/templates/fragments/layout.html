@@ -43,12 +43,18 @@
                         <span th:text="${text}">Template</span>
                       </a>
                   </li>
-
-                  <li th:replace="::menuItem ('/login','login','login page','user','Login')">
-                      <span class="glyphicon glyphicon-" aria-hidden="true"></span>
-                      <span>Home</span>
+                  <li th:if="${#session.getAttribute('admUser')} != null">
+                      <a href="" title="">
+                          <span class="glyphicon  glyphicon-user" aria-hidden="true"></span>
+                          <span th:text="'Welcome, ' + ${#session.getAttribute('admUser').userName}"></span>
+                      </a>
                   </li>
-  
+                  <li th:replace="${#session.getAttribute('admUser')} == null ?
+                  ~{::menuItem ('/loginPage','loginPage','login page','chevron-down','Login')} :
+                  ~{::menuItem ('/logout','logout','logout page','remove-circle','logout')}">
+                      <span class="glyphicon glyphicon-" aria-hidden="true"></span>
+                      <span>Login</span>
+                  </li>
                   <li th:replace="::menuItem ('/','home','home page','home','Home')">
                       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                       <span>Home</span>
@@ -64,10 +70,10 @@
                       <span>Veterinarians</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">
-                      <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-                      <span>Error</span>
-                  </li>
+<!--                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">-->
+<!--                      <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>-->
+<!--                      <span>Error</span>-->
+<!--                  </li>-->
   
               </ul>
           </div>
